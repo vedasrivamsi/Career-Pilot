@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Career Pilot — B.Tech Student Roadmap Platform</title>
+  <meta name="description"
+    content="Career Pilot helps B.Tech students navigate their learning journey with curated roadmaps for job roles, subjects, and academic years. Learn from YouTube and top free resources." />
+  <meta name="keywords"
+    content="B.Tech roadmap, student career guide, SDE roadmap, data science, full stack developer, DSA, machine learning, career path" />
+  <meta name="author" content="Career Pilot" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Career Pilot — B.Tech Student Roadmap" />
+  <meta property="og:description"
+    content="Curated learning roadmaps for B.Tech students by Job Role, Subject, and Academic Year with YouTube resources." />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png" type="image/png" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+  <!-- Animated background blobs (same as Portfolio & Cash Compass) -->
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-3" aria-hidden="true"></div>
+
+  <!-- ════════════════════ NAVBAR ════════════════════ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo" aria-label="Career Pilot Home">
+        <img src="logo.png" alt="Career Pilot" class="nav-logo-img" />
+        <span class="logo-text">Career<span class="logo-accent">Pilot</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#roadmaps" class="nav-link">Roadmaps</a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ════════════════════ HERO ════════════════════ -->
+  <section class="hero" id="home" aria-label="Hero section">
+    <div class="hero-bg" aria-hidden="true">
+      <div id="particles"></div>
+      <div class="hero-glow glow-1"></div>
+      <div class="hero-glow glow-2"></div>
+      <div class="hero-glow glow-3"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge" role="note"><span class="badge-dot" aria-hidden="true"></span>B.Tech Student Platform
+      </div>
+
+      <h1 class="hero-title">
+        Navigate Your<br>
+        <span class="gradient-text">Career Journey</span><br>
+        with Confidence
+      </h1>
+
+      <p class="hero-subtitle">
+        Curated roadmaps for B.Tech students — by <strong>Job Role</strong>, <strong>Subject</strong>, or
+        <strong>Academic Year</strong>.
+        Learn from the best YouTube channels and free resources, all in one place.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#roadmaps" class="btn btn-primary" id="hero-cta-btn">
+          <span>Explore Roadmaps</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+        <div class="hero-stats" role="list" aria-label="Platform statistics">
+          <div class="stat" role="listitem">
+            <span class="stat-num">16+</span>
+            <span class="stat-label">Job Roles</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat" role="listitem">
+            <span class="stat-num">12+</span>
+            <span class="stat-label">Subjects</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat" role="listitem">
+            <span class="stat-num">4</span>
+            <span class="stat-label">B.Tech Years</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-indicator"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ ROADMAPS ════════════════════ -->
+  <section class="roadmaps-section" id="roadmaps" aria-label="Roadmaps section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Choose Your Path</h2>
+        <p class="section-subtitle">Select how you want to explore your learning roadmap</p>
+      </div>
+
+      <!-- Tab Selector -->
+      <div class="tab-selector" id="tabSelector" role="tablist" aria-label="Roadmap categories">
+        <button class="tab-btn active" data-tab="jobRoles" id="tab-jobRoles" role="tab" aria-selected="true"
+          aria-controls="cardsGrid">
+          <span class="tab-icon" aria-hidden="true">💼</span>
+          <span>Job Roles</span>
+        </button>
+        <button class="tab-btn" data-tab="subjects" id="tab-subjects" role="tab" aria-selected="false"
+          aria-controls="cardsGrid">
+          <span class="tab-icon" aria-hidden="true">📚</span>
+          <span>Subjects</span>
+        </button>
+        <button class="tab-btn" data-tab="years" id="tab-years" role="tab" aria-selected="false"
+          aria-controls="cardsGrid">
+          <span class="tab-icon" aria-hidden="true">🎓</span>
+          <span>B.Tech Year</span>
+        </button>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="cards-grid" id="cardsGrid" role="list" aria-live="polite" aria-label="Roadmap cards"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════ ROADMAP DETAIL OVERLAY ════════════════════ -->
+  <div class="roadmap-overlay" id="roadmapOverlay" role="dialog" aria-modal="true" aria-label="Roadmap detail">
+    <div class="roadmap-detail" id="roadmapDetail">
+      <button class="detail-back" id="detailBack" aria-label="Go back to roadmap list">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        <span>Back</span>
+      </button>
+
+      <div class="detail-header" id="detailHeader" aria-label="Roadmap header"></div>
+      <div class="detail-progress" id="detailProgress" aria-label="Progress tracker"></div>
+      <div class="detail-steps" id="detailSteps" aria-label="Roadmap steps"></div>
+    </div>
+  </div>
+
+  <!-- ════════════════════ FOOTER ════════════════════ -->
+  <footer class="footer" id="about" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img src="logo.png" alt="Career Pilot" class="footer-logo-img" />
+            <span class="footer-logo-text">Career<span class="logo-accent">Pilot</span></span>
+          </div>
+          <p>Empowering B.Tech students to navigate their career journey with structured roadmaps and curated YouTube
+            resources. From Year 1 to placements — we've got you covered.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Explore Roadmaps</h4>
+          <a href="#roadmaps" onclick="switchTab('jobRoles'); return false;">💼 Job Roles</a>
+          <a href="#roadmaps" onclick="switchTab('subjects'); return false;">📚 Subjects</a>
+          <a href="#roadmaps" onclick="switchTab('years'); return false;">🎓 B.Tech Years</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Career Pilot · Built with ❤️ for B.Tech Students 🚀</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
