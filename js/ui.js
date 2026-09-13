@@ -42,6 +42,9 @@ const UI = {
         : `<div class="card-tags">${tagsHtml}</div>`;
 
       card.innerHTML = `
+        <button class="bookmark-btn ${App.isBookmarked(item.id) ? 'active' : ''}" aria-label="Bookmark" onclick="event.stopPropagation(); App.toggleBookmark('${item.id}');">
+          ${App.isBookmarked(item.id) ? '❤️' : '🤍'}
+        </button>
         <span class="card-icon">${item.icon}</span>
         <h3 class="card-title">${item.title}</h3>
         <p class="card-description">${item.description}</p>
@@ -66,11 +69,6 @@ const UI = {
   renderDetail(item) {
     this._renderDetailHeader(item);
     this._renderSteps(item.steps || []);
-    // Animate progress bar after render
-    setTimeout(() => {
-      const fill = document.querySelector('.progress-bar-fill');
-      if (fill) fill.style.width = '0%';
-    }, 10);
   },
 
   _renderDetailHeader(item) {
@@ -88,7 +86,12 @@ const UI = {
       <div class="detail-header-top">
         <div class="detail-icon-wrap" style="--card-color:${item.color}">${item.icon}</div>
         <div class="detail-info">
-          <h1 class="detail-title">${item.title}</h1>
+          <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+            <h1 class="detail-title">${item.title}</h1>
+            <button class="bookmark-btn ${App.isBookmarked(item.id) ? 'active' : ''}" style="position:static; margin-left:15px; font-size:1.5rem; background:none; border:none; cursor:pointer;" onclick="App.toggleBookmark('${item.id}'); this.innerHTML = App.isBookmarked('${item.id}') ? '❤️' : '🤍'; this.classList.toggle('active');">
+              ${App.isBookmarked(item.id) ? '❤️' : '🤍'}
+            </button>
+          </div>
           <p class="detail-description">${item.description}</p>
           <div class="detail-badges">
             <span class="detail-badge"><span class="detail-badge-icon">${this.icons.clock}</span>${item.duration}</span>
@@ -97,15 +100,6 @@ const UI = {
           </div>
           ${subjectsHtml}
         </div>
-      </div>`;
-
-    progress.innerHTML = `
-      <div class="progress-label">
-        <span>Your Roadmap Progress</span>
-        <span id="progressPct">0%</span>
-      </div>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="progressFill"></div>
       </div>`;
   },
 
@@ -145,7 +139,6 @@ const UI = {
         container.querySelectorAll('.step-item').forEach(el => el.classList.remove('active'));
         if (!isActive) {
           item.classList.add('active');
-          this._updateProgress(steps.length);
         }
       });
 
@@ -155,19 +148,7 @@ const UI = {
     // Auto-open first step
     if (container.firstChild) {
       container.firstChild.classList.add('active');
-      this._updateProgress(steps.length);
     }
-  },
-
-  _updateProgress(total) {
-    const completed = document.querySelectorAll('.step-item.completed').length;
-    const active    = document.querySelectorAll('.step-item.active').length;
-    const opened    = Math.min(completed + active, total);
-    const pct = Math.round((opened / total) * 100);
-    const fill = document.getElementById('progressFill');
-    const label = document.getElementById('progressPct');
-    if (fill)  fill.style.width  = pct + '%';
-    if (label) label.textContent = pct + '%';
   },
 
   _resourceCard(r) {

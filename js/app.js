@@ -3,6 +3,8 @@
 const App = {
   currentTab: 'jobRoles',
   currentItem: null,
+  bookmarks: JSON.parse(localStorage.getItem('careerPilotBookmarks') || '[]'),
+  searchQuery: '',
 
   /* ─── INIT ─────────────────────────────────── */
   init() {
@@ -10,7 +12,35 @@ const App = {
     this._initTabs();
     this._initBackButton();
     this._initKeyboard();
+    this._initSearch();
     this.switchTab('jobRoles');
+  },
+
+  isBookmarked(id) {
+    return this.bookmarks.includes(id);
+  },
+
+  toggleBookmark(id) {
+    if (this.isBookmarked(id)) {
+      this.bookmarks = this.bookmarks.filter(b => b !== id);
+    } else {
+      this.bookmarks.push(id);
+    }
+    localStorage.setItem('careerPilotBookmarks', JSON.stringify(this.bookmarks));
+    
+    // If we're inside the detail view, just updating the icon might be enough, but let's re-render
+    // Actually, just re-render cards to reflect updated bookmark icons
+    this.switchTab(this.currentTab);
+  },
+
+  _initSearch() {
+    const input = document.getElementById('searchInput');
+    if (input) {
+      input.addEventListener('input', (e) => {
+        this.searchQuery = e.target.value.toLowerCase();
+        this.switchTab(this.currentTab);
+      });
+    }
   },
 
   /* ─── NAVBAR ────────────────────────────────── */
@@ -89,14 +119,38 @@ const App = {
       btn.classList.toggle('active', btn.dataset.tab === tabId);
     });
 
-    // Map tabId → data
-    const dataMap = {
-      jobRoles: CareerPilotData.jobRoles,
-      subjects: CareerPilotData.subjects,
-      years:    CareerPilotData.years,
-    };
+    let itemsToRender = [];
+    
+    if (tabId === 'saved') {
+      const allItems = [
+        ...(CareerPilotData.jobRoles || []),
+        ...(CareerPilotData.subjects || []),
+        ...(CareerPilotData.years || [])
+      ];
+      itemsToRender = allItems.filter(item => this.isBookmarked(item.id));
+      // deduplicate by id
+      itemsToRender = Array.from(new Map(itemsToRender.map(item => [item.id, item])).values());
+    } else {
+      const dataMap = {
+        jobRoles: CareerPilotData.jobRoles,
+        subjects: CareerPilotData.subjects,
+        years:    CareerPilotData.years,
+      };
+      itemsToRender = dataMap[tabId] || [];
+    }
 
-    UI.renderCards(dataMap[tabId] || [], tabId);
+    // Apply search filter
+    if (this.searchQuery) {
+      itemsToRender = itemsToRender.filter(item => {
+        const titleMatch = item.title.toLowerCase().includes(this.searchQuery);
+        const descMatch = item.description.toLowerCase().includes(this.searchQuery);
+        const tagsMatch = (item.tags || []).some(t => t.toLowerCase().includes(this.searchQuery));
+        const subjectsMatch = (item.subjects || []).some(s => s.toLowerCase().includes(this.searchQuery));
+        return titleMatch || descMatch || tagsMatch || subjectsMatch;
+      });
+    }
+
+    UI.renderCards(itemsToRender, tabId);
   },
 
   /* ─── DETAIL VIEW ───────────────────────────── */
