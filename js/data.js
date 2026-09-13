@@ -26,6 +26,8 @@ const CareerPilotData = {
             {title:'DSA Full Series',url:'https://www.youtube.com/@ApnaCollegeOfficial',type:'youtube',channel:'Apna College'},
             {title:'DSA Algorithms',url:'https://www.youtube.com/@abdul_bari',type:'youtube',channel:'Abdul Bari'},
             {title:'LeetCode',url:'https://leetcode.com',type:'practice'},
+            {title:'GeeksforGeeks Practice',url:'https://practice.geeksforgeeks.org/',type:'practice'},
+            {title:'Coding Ninjas Studio',url:'https://www.codingninjas.com/studio',type:'practice'},
             {title:'Striver A2Z Sheet',url:'https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/',type:'docs'},
           ]},
         { id:3, title:'Operating Systems', duration:'3–4 weeks',
@@ -65,6 +67,8 @@ const CareerPilotData = {
           resources:[
             {title:'LeetCode',url:'https://leetcode.com',type:'practice'},
             {title:'Codeforces',url:'https://codeforces.com',type:'practice'},
+            {title:'CodeChef',url:'https://www.codechef.com/',type:'practice'},
+            {title:'AtCoder',url:'https://atcoder.jp/',type:'practice'},
             {title:'NeetCode Roadmap',url:'https://neetcode.io/roadmap',type:'docs'},
           ]},
       ]
@@ -96,6 +100,8 @@ const CareerPilotData = {
           resources:[
             {title:'DSA for Beginners',url:'https://www.youtube.com/@ApnaCollegeOfficial',type:'youtube',channel:'Apna College'},
             {title:'HackerRank Practice',url:'https://hackerrank.com/domains/data-structures',type:'practice'},
+            {title:'LeetCode Easy',url:'https://leetcode.com/problemset/all/?difficulty=EASY',type:'practice'},
+            {title:'GeeksforGeeks Basic',url:'https://practice.geeksforgeeks.org/explore?page=1&difficulty[]=0',type:'practice'},
           ]},
         { id:4, title:'Agile & Team Collaboration', duration:'1–2 weeks',
           description:'Understand how software teams work using Agile/Scrum methodologies.',
@@ -161,6 +167,8 @@ const CareerPilotData = {
           topics:['Personal Portfolio Site','E-commerce UI Clone','Real-time App','Deploy on Vercel / Netlify','GitHub Portfolio'],
           resources:[
             {title:'Frontend Mentor',url:'https://frontendmentor.io',type:'practice'},
+            {title:'CSSBattle',url:'https://cssbattle.dev/',type:'practice'},
+            {title:'CodePen',url:'https://codepen.io/',type:'practice'},
             {title:'Vercel Deploy',url:'https://vercel.com',type:'docs'},
           ]},
       ]
