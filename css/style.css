@@ -606,6 +606,17 @@ body::after {
   z-index: 0;
 }
 
+/* No timeline mode (for platforms) */
+.detail-steps.no-timeline::before {
+  display: none;
+}
+.detail-steps.no-timeline .step-number {
+  display: none;
+}
+.detail-steps.no-timeline .step-item {
+  padding-left: 0;
+}
+
 .step-item {
   position: relative; padding-left: 72px;
   margin-bottom: 16px;

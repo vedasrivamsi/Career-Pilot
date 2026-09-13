@@ -66,9 +66,9 @@ const UI = {
   /* ────────────────────────────────────────────
      renderDetail(item)
   ──────────────────────────────────────────── */
-  renderDetail(item) {
+  renderDetail(item, category) {
     this._renderDetailHeader(item);
-    this._renderSteps(item.steps || []);
+    this._renderSteps(item.steps || [], category);
   },
 
   _renderDetailHeader(item) {
@@ -103,9 +103,15 @@ const UI = {
       </div>`;
   },
 
-  _renderSteps(steps) {
+  _renderSteps(steps, category) {
     const container = document.getElementById('detailSteps');
     container.innerHTML = '';
+    
+    if (category === 'platforms') {
+      container.classList.add('no-timeline');
+    } else {
+      container.classList.remove('no-timeline');
+    }
 
     steps.forEach((step, i) => {
       const item = document.createElement('div');

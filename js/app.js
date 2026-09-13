@@ -158,7 +158,7 @@ const App = {
   /* ─── DETAIL VIEW ───────────────────────────── */
   openDetail(item, category) {
     this.currentItem = { item, category };
-    UI.renderDetail(item);
+    UI.renderDetail(item, category);
     UI.showOverlay();
   },
 
