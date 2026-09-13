@@ -1368,5 +1368,65 @@ const CareerPilotData = {
           ]},
       ]
     },
+  ],
+
+  platforms: [
+    {
+      id: 'leetcode', title: 'LeetCode', shortTitle: 'LeetCode', icon: '💻',
+      description: 'The industry standard for coding interview preparation.',
+      color: '#fbbf24', gradient: 'linear-gradient(135deg,#fbbf24,#f59e0b)',
+      duration: 'Ongoing', difficulty: 'Beginner-Expert', tags: ['DSA', 'Interviews', 'Algorithms'],
+      steps: [
+        { id:1, title:'Getting Started with LeetCode', duration:'Ongoing',
+          description:'Solve top interview questions to prepare for technical interviews.',
+          topics:['Arrays', 'Strings', 'Dynamic Programming', 'Graphs'],
+          resources:[
+            {title:'LeetCode',url:'https://leetcode.com',type:'practice'},
+          ]},
+      ]
+    },
+    {
+      id: 'codeforces', title: 'Codeforces', shortTitle: 'Codeforces', icon: '📈',
+      description: 'The premier platform for competitive programming.',
+      color: '#3b82f6', gradient: 'linear-gradient(135deg,#3b82f6,#1d4ed8)',
+      duration: 'Ongoing', difficulty: 'Advanced', tags: ['CP', 'Contests', 'Math'],
+      steps: [
+        { id:1, title:'Getting Started with Codeforces', duration:'Ongoing',
+          description:'Participate in rated contests and solve mathematical problems.',
+          topics:['Number Theory', 'Combinatorics', 'Advanced DSA'],
+          resources:[
+            {title:'Codeforces',url:'https://codeforces.com',type:'practice'},
+          ]},
+      ]
+    },
+    {
+      id: 'geeksforgeeks', title: 'GeeksforGeeks', shortTitle: 'GFG', icon: '🤓',
+      description: 'A computer science portal with excellent articles and practice problems.',
+      color: '#22c55e', gradient: 'linear-gradient(135deg,#22c55e,#166534)',
+      duration: 'Ongoing', difficulty: 'Beginner-Expert', tags: ['CS Core', 'DSA', 'Articles'],
+      steps: [
+        { id:1, title:'Getting Started with GFG', duration:'Ongoing',
+          description:'Read articles on core CS topics and practice coding.',
+          topics:['Data Structures', 'Algorithms', 'OS', 'DBMS', 'CN'],
+          resources:[
+            {title:'GeeksforGeeks',url:'https://www.geeksforgeeks.org/',type:'docs'},
+            {title:'GFG Practice',url:'https://practice.geeksforgeeks.org/',type:'practice'},
+          ]},
+      ]
+    },
+    {
+      id: 'hackerrank', title: 'HackerRank', shortTitle: 'HackerRank', icon: '🟢',
+      description: 'Platform to practice coding, prepare for interviews, and take assessments.',
+      color: '#10b981', gradient: 'linear-gradient(135deg,#10b981,#047857)',
+      duration: 'Ongoing', difficulty: 'Beginner', tags: ['Basics', 'Assessments', 'SQL'],
+      steps: [
+        { id:1, title:'Getting Started with HackerRank', duration:'Ongoing',
+          description:'Solve beginner-friendly problems across different languages.',
+          topics:['Language Proficiency', 'Problem Solving', 'SQL Basics'],
+          resources:[
+            {title:'HackerRank',url:'https://www.hackerrank.com',type:'practice'},
+          ]},
+      ]
+    }
   ]
 };

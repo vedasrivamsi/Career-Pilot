@@ -125,7 +125,8 @@ const App = {
       const allItems = [
         ...(CareerPilotData.jobRoles || []),
         ...(CareerPilotData.subjects || []),
-        ...(CareerPilotData.years || [])
+        ...(CareerPilotData.years || []),
+        ...(CareerPilotData.platforms || [])
       ];
       itemsToRender = allItems.filter(item => this.isBookmarked(item.id));
       // deduplicate by id
@@ -135,6 +136,7 @@ const App = {
         jobRoles: CareerPilotData.jobRoles,
         subjects: CareerPilotData.subjects,
         years:    CareerPilotData.years,
+        platforms: CareerPilotData.platforms,
       };
       itemsToRender = dataMap[tabId] || [];
     }
