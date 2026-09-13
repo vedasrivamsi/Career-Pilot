@@ -25,10 +25,13 @@ const CareerPilotData = {
             {title:'A2Z DSA Course',url:'https://www.youtube.com/@takeUforward',type:'youtube',channel:'Striver'},
             {title:'DSA Full Series',url:'https://www.youtube.com/@ApnaCollegeOfficial',type:'youtube',channel:'Apna College'},
             {title:'DSA Algorithms',url:'https://www.youtube.com/@abdul_bari',type:'youtube',channel:'Abdul Bari'},
-            {title:'LeetCode',url:'https://leetcode.com',type:'practice'},
-            {title:'GeeksforGeeks Practice',url:'https://practice.geeksforgeeks.org/',type:'practice'},
-            {title:'Coding Ninjas Studio',url:'https://www.codingninjas.com/studio',type:'practice'},
             {title:'Striver A2Z Sheet',url:'https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/',type:'docs'},
+          ],
+          codingPlatforms:[
+            {title:'LeetCode',url:'https://leetcode.com',icon:'💻'},
+            {title:'GeeksforGeeks',url:'https://practice.geeksforgeeks.org/',icon:'🟢'},
+            {title:'Coding Ninjas',url:'https://www.codingninjas.com/studio',icon:'🥋'},
+            {title:'HackerRank',url:'https://hackerrank.com/domains/data-structures',icon:'🟩'},
           ]},
         { id:3, title:'Operating Systems', duration:'3–4 weeks',
           description:'Understand how OS works — processes, threads, scheduling, memory. Asked in almost every SDE interview.',
@@ -65,11 +68,14 @@ const CareerPilotData = {
           description:'Practice on competitive platforms, build real projects, and ace behavioral interviews.',
           topics:['LeetCode Top 150','Mock Interviews','2–3 Full-Stack Projects','GitHub Portfolio','Resume Building','Behavioral Questions (STAR method)'],
           resources:[
-            {title:'LeetCode',url:'https://leetcode.com',type:'practice'},
-            {title:'Codeforces',url:'https://codeforces.com',type:'practice'},
-            {title:'CodeChef',url:'https://www.codechef.com/',type:'practice'},
-            {title:'AtCoder',url:'https://atcoder.jp/',type:'practice'},
             {title:'NeetCode Roadmap',url:'https://neetcode.io/roadmap',type:'docs'},
+          ],
+          codingPlatforms:[
+            {title:'LeetCode',url:'https://leetcode.com',icon:'💻'},
+            {title:'Codeforces',url:'https://codeforces.com',icon:'📈'},
+            {title:'CodeChef',url:'https://www.codechef.com/',icon:'👨‍🍳'},
+            {title:'AtCoder',url:'https://atcoder.jp/',icon:'🏯'},
+            {title:'HackerEarth',url:'https://www.hackerearth.com/',icon:'🌏'},
           ]},
       ]
     },
@@ -99,9 +105,11 @@ const CareerPilotData = {
           topics:['Arrays & Strings','Linked Lists','Stacks & Queues','Hash Maps','Basic Sorting'],
           resources:[
             {title:'DSA for Beginners',url:'https://www.youtube.com/@ApnaCollegeOfficial',type:'youtube',channel:'Apna College'},
-            {title:'HackerRank Practice',url:'https://hackerrank.com/domains/data-structures',type:'practice'},
-            {title:'LeetCode Easy',url:'https://leetcode.com/problemset/all/?difficulty=EASY',type:'practice'},
-            {title:'GeeksforGeeks Basic',url:'https://practice.geeksforgeeks.org/explore?page=1&difficulty[]=0',type:'practice'},
+          ],
+          codingPlatforms:[
+            {title:'HackerRank',url:'https://hackerrank.com/domains/data-structures',icon:'🟩'},
+            {title:'LeetCode Easy',url:'https://leetcode.com/problemset/all/?difficulty=EASY',icon:'💻'},
+            {title:'GeeksforGeeks',url:'https://practice.geeksforgeeks.org/',icon:'🟢'},
           ]},
         { id:4, title:'Agile & Team Collaboration', duration:'1–2 weeks',
           description:'Understand how software teams work using Agile/Scrum methodologies.',
@@ -167,9 +175,13 @@ const CareerPilotData = {
           topics:['Personal Portfolio Site','E-commerce UI Clone','Real-time App','Deploy on Vercel / Netlify','GitHub Portfolio'],
           resources:[
             {title:'Frontend Mentor',url:'https://frontendmentor.io',type:'practice'},
-            {title:'CSSBattle',url:'https://cssbattle.dev/',type:'practice'},
-            {title:'CodePen',url:'https://codepen.io/',type:'practice'},
             {title:'Vercel Deploy',url:'https://vercel.com',type:'docs'},
+          ],
+          codingPlatforms:[
+            {title:'Frontend Mentor',url:'https://frontendmentor.io',icon:'🎨'},
+            {title:'CSSBattle',url:'https://cssbattle.dev/',icon:'⚔️'},
+            {title:'CodePen',url:'https://codepen.io/',icon:'🖊️'},
+            {title:'JavaScript30',url:'https://javascript30.com/',icon:'⚡'},
           ]},
       ]
     },
@@ -312,7 +324,12 @@ const CareerPilotData = {
           topics:['SELECT, WHERE, ORDER BY','Aggregate Functions (GROUP BY)','Joins (INNER, LEFT, RIGHT)','Subqueries & CTEs','Window Functions'],
           resources:[
             {title:'SQL for Data Analysis',url:'https://www.youtube.com/@techTFQ',type:'youtube',channel:'techTFQ'},
-            {title:'HackerRank SQL',url:'https://hackerrank.com/domains/sql',type:'practice'},
+          ],
+          codingPlatforms:[
+            {title:'HackerRank SQL',url:'https://hackerrank.com/domains/sql',icon:'🟩'},
+            {title:'LeetCode SQL',url:'https://leetcode.com/problemset/database/',icon:'💻'},
+            {title:'SQLZoo',url:'https://sqlzoo.net',icon:'🖥️'},
+            {title:'Mode SQL',url:'https://mode.com/sql-tutorial/',icon:'📊'},
           ]},
         { id:3, title:'Python for Data Analysis', duration:'6–8 weeks',
           description:'Use Python with Pandas and NumPy to process and analyze large datasets.',
@@ -332,7 +349,10 @@ const CareerPilotData = {
           topics:['Descriptive Statistics','Hypothesis Testing','Correlation & Regression','A/B Testing','Kaggle Datasets'],
           resources:[
             {title:'StatQuest',url:'https://www.youtube.com/@statquest',type:'youtube',channel:'StatQuest'},
-            {title:'Kaggle Learn',url:'https://kaggle.com/learn',type:'practice'},
+          ],
+          codingPlatforms:[
+            {title:'Kaggle',url:'https://kaggle.com/learn',icon:'📊'},
+            {title:'HackerRank Python',url:'https://hackerrank.com/domains/python',icon:'🟩'},
           ]},
       ]
     },

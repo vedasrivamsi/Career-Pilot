@@ -120,6 +120,7 @@ const UI = {
 
       const topicsHtml = (step.topics || []).map(t => `<span class="topic-chip">${t}</span>`).join('');
       const resourcesHtml = (step.resources || []).map(r => this._resourceCard(r)).join('');
+      const platformsHtml = (step.codingPlatforms || []).map(p => this._platformCard(p)).join('');
 
       item.innerHTML = `
         <div class="step-number">${i + 1}</div>
@@ -134,6 +135,7 @@ const UI = {
           <div class="step-body">
             <p class="step-description">${step.description}</p>
             ${topicsHtml ? `<div class="step-section-label">Topics Covered</div><div class="topics-list">${topicsHtml}</div>` : ''}
+            ${platformsHtml ? `<div class="step-section-label platforms-label">Coding Platforms</div><div class="platforms-list">${platformsHtml}</div>` : ''}
             ${resourcesHtml ? `<div class="step-section-label">Resources & Links</div><div class="resources-grid">${resourcesHtml}</div>` : ''}
           </div>
         </div>`;
@@ -168,6 +170,15 @@ const UI = {
           ${channel}
         </div>
         <span class="resource-ext-icon">${this.icons.ext}</span>
+      </a>`;
+  },
+
+  _platformCard(p) {
+    return `
+      <a class="platform-card" href="${p.url}" target="_blank" rel="noopener noreferrer">
+        <span class="platform-icon">${p.icon}</span>
+        <span class="platform-name">${p.title}</span>
+        <span class="platform-ext">${this.icons.ext}</span>
       </a>`;
   },
 
